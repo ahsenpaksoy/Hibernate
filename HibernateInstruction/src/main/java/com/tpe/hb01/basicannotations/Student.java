@@ -27,6 +27,8 @@ public class Student { //kalici hale getirmek istedigimiz dataların oldugu clas
     private String name; //not null
     private int grade;
 
+    //todo:transient,Lob
+
     //getter-setter
 
     public Integer getId() {
