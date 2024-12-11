@@ -81,6 +81,12 @@ public class RunnerFetch01 {
         }
 
         //sql ile tüm kayıtları çekelim:exercise
+        System.out.println("----------------SQL-----------------------");
+        String sql2="SELECT * FROM t_student";
+        List<Object[]> result=session.createSQLQuery(sql2).getResultList();
+        for (Object[] objects:result){
+            System.out.println(Arrays.toString(objects));
+        }
 
         // HQL ile grade degeri 98 olan ogrencilerin id ve name bilgilerini getirelim
         String hql2="SELECT s.id,s.name FROM Student s WHERE s.grade=98";
@@ -92,9 +98,26 @@ public class RunnerFetch01 {
 
         //practice:HQL ile
         //1-ismi Harry Potter olan öğrencileri getirelim
+        String hql3="SELECT s FROM Student s WHERE s.name='Harry Potter'";
+        List<Student> resultList2=session.createQuery(hql3, Student.class).getResultList();
+        for (Student s:resultList2){
+            System.out.println(s);
+        }
+
         //2-tüm öğrencilerin sadece isimlerini getirelim
+        String hql4="SELECT name FROM Student";
+        List<String> resultList3=session.createQuery(hql4, String.class).getResultList();
+        for (String s:resultList3){
+            System.out.println(s);
+        }
+
         //SQL ile
         //1-tüm öğrencilerin sadece isimlerini getirelim
+        String sql3="SELECT student_name FROM t_student";
+        List<String> isimler=session.createSQLQuery(sql3).getResultList();
+        for (String s:isimler){
+            System.out.println(s);
+        }
 
 
         session.close();
