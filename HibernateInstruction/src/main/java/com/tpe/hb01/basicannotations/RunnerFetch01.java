@@ -25,18 +25,25 @@ public class RunnerFetch01 {
            Java sınıfları (entity'ler) ve onların özellikleriyle çalışır
 
            transaction degisiklikleri kaydetmek icin yapılır
+           insert update delete yapıyorsak transaction olusturmak zorundayız
          */
 
-        Configuration config = new Configuration().configure().addAnnotatedClass(Student.class);
+        //Database e erisebilmek icin, connection ın jdbc ile gerceklesebilmesi icin oncelikle Configuration yapılmalı.Her uygulamada bir Conf yeterli.
+        //Tekrar Runner class olusturdugumuz icin yeniden yaptık
+        Configuration config = new Configuration().configure().addAnnotatedClass(Student.class); //configurasyon dosyası default isimdeyse yani hibernate.cfg.xml ise parametre girmeye gerek yok
         SessionFactory sf = config.buildSessionFactory(); //oturumu aciyoruz
         Session session = sf.openSession();
 
         //DB den data cekicez
+
         //get
-        Student student = session.get(Student.class,1001); //PK sutunundaki deger
+        Student student = session.get(Student.class,1001); //PK sutunundaki deger. get methodu entity nin data tipini ve PK deki datayı ister
         System.out.println("----------------------------get methodu-----------------------------");
         System.out.println(student);
         //get methodu ile teksatırdaki bilgileri getirebiliriz
+        //hibernate eslestirmeyi yapar, bir satırın bir student objesine karsılık geldigini bilir
+        //session ın get methoduyla sadece PK sutununda degeri verilen unique olarak cagırılan bir datayı, objeyi getirebilirsiniz.
+        //PK sutununda bir degeri bildigimizde tum bilgileri ile sadece bir satırı getirebilirsiniz
 
         //SQL
         String sql = "SELECT * FROM t_student WHERE id=1002";
@@ -44,24 +51,30 @@ public class RunnerFetch01 {
         //uniqueResult():sorgunun tek satır getireceğini biliyorsak kullanılır.
         //geriye bir saturdan birden fazla data geldiği için data tipleri farklı
         //old için Object[] içine alınır.
-        //bircok sutundan data getirdigi icin object[] kullandık
+        //bircok sutundan data getirdigi icin object[] kullandık.orn id Integer,name String ...
         //burda sorguyu yazarken hibernate i devreden cikardik sorguyu kendimiz yazdık
 
+        //sql sorgusu yazıyorsak tablo isimleri ve sutun isimleri kullanılır
+
         System.out.println("----------------------------SQL---------------------------");
-        System.out.println(Arrays.toString(student2));
+        System.out.println(Arrays.toString(student2)); //Artık student bilgileri bir array ın icinde.O yuzden array yazdırdık
 
         //HQL:Javaca
         String hql = "FROM Student WHERE id = 1003";
         Student student3 = session.createQuery(hql, Student.class).uniqueResult();
         //uniqueResult():sorgunun tek satır getirecegini biliyorsak kullanilir
+        //HQL dedigimizde de işin icine hibernate girer
+
+        //hql sorgusu yazıyorsak class isimleri ve field isimleri kullanılır
 
         System.out.println("----------------------------HQL---------------------------");
         System.out.println(student3);
 
         //tüm kayıtları çekelim
         //hql
-        List<Student> studentList = session.createQuery("FROM Student", Student.class).getResultList();
-        //getResultList birden fazla kayıt geleceği zaman kullanılır
+        List<Student> studentList = session.createQuery("FROM Student", Student.class).getResultList(); //tum bilgileri istiyorsak FROM ile basliyoruz
+        //getResultList birden fazla kayıt geleceği zaman kullanılır                                       //select * ' a gerek yok
+        //Student.class : Student data tipinde
         System.out.println("Tum ogrenciler");
         for (Student s:studentList){
             System.out.println(s);
