@@ -29,8 +29,10 @@ public class RunnerSave03 {
         diary1.setStudent(student1);//diary1 ile student1 ilişkilendirdik
         diary2.setStudent(student2);
         diary3.setStudent(student3);
-        //yani FK sütununa studentların idlerini ekledik.DİKKAT:unique(tekrarsız)
+        //yani FK sütununa studentların idlerini ekledik.DİKKAT:unique(tekrarsız).bu sutun unique olmalı
+        //1-1 oldugu icin her ogrencinin bir gunlugu olur
 
+        //FK null deger alabilir.Gunlugu olmayan ogrenci yada bir gunlugun sahibi olmayadabilir.
 
         Configuration config=new Configuration().configure().
                 addAnnotatedClass(Student03.class).addAnnotatedClass(Diary.class);

@@ -17,6 +17,7 @@ public class RunnerFetch03 {
 
         //id:11 olan günlüğü getirelim
         Diary diary = session.get(Diary.class,11);
+        //get methodu entity dondurur
 
         System.out.println("*************************************");
         System.out.println(student);
@@ -31,16 +32,13 @@ public class RunnerFetch03 {
         //id:1002 olan öğrencinin günlüğü hangisidir
         Student03 student2=session.get(Student03.class,1002);
         //student2.getDiary() -->java kodları ile ulaşamıyoruz fakat DB den ulaşabilirim
+        //Diary icerisinde student field ı var ama ogrenci icerisinde diary field ı yok.gunluk objemden ogrenci objesine ulasabilirim.
         String diaryname = (String) session.createSQLQuery("SELECT name FROM diary WHERE std_id=1002").uniqueResult();
         System.out.println(diaryname);
 
         //PROBLEM: sorgu yazmadan diaryden studenta , studentdan diarye ulaşmak istersem?
         //uni_directional(tek yönlü) : Diary  -> Student
         //bi_directional (çift yönlü) : Diary <-> Student(veritabanında birşey değişmez)
-
-
-
-
 
 
         session.close();
