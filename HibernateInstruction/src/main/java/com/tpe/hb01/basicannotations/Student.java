@@ -66,3 +66,11 @@ public class Student { //kalici hale getirmek istedigimiz dataların oldugu clas
                 '}';
     }
 }
+//Hibernate bir ORM tool.
+//Java uygulamalari ile database lere, ilişkisel veri tabanlarına baglanmak istedigimizde, veri tabanı nesneleri
+// ile java uygulamasındaki nesneler arasındaki eslestirmeyi saglayan, ORM islemini yapan bir arac.
+//Hibernate dataları kalıcı hale getirmek icin arka planda jdbc yi kullanır
+//Bir objenin ozellıklerini datalarını kalıcı hale getirmek istiyorsak @Entitiy annotasyonu ile bu class a karsilik bir tablo olusturulur.
+//Bu class daki tum field lara karsilik tabloda sutun olusturulur
+//@Entitiy olusturmussak @Id anotasyonunu bir sutuna eklememiz gerekir.cogunlukla id field ı kullanılır
+//Yapılan degişikliklerin kalıcı hale gelmesi icin bir transaction baslatıp onaylamamiz(commit) gerekir.

@@ -26,6 +26,7 @@ public class RunnerFetch01 {
 
            transaction degisiklikleri kaydetmek icin yapılır
            insert update delete yapıyorsak transaction olusturmak zorundayız
+           Hibernate relational database management system ler icin geliştirilmiştir.İlişkisel veri tabanları icin
          */
 
         //Database e erisebilmek icin, connection ın jdbc ile gerceklesebilmesi icin oncelikle Configuration yapılmalı.Her uygulamada bir Conf yeterli.
@@ -44,12 +45,13 @@ public class RunnerFetch01 {
         //hibernate eslestirmeyi yapar, bir satırın bir student objesine karsılık geldigini bilir
         //session ın get methoduyla sadece PK sutununda degeri verilen unique olarak cagırılan bir datayı, objeyi getirebilirsiniz.
         //PK sutununda bir degeri bildigimizde tum bilgileri ile sadece bir satırı getirebilirsiniz
+        //Session ın get methodu sadece PK sutunuyla filtreledigimiz spesifik bir satırı getirir.
 
         //SQL
         String sql = "SELECT * FROM t_student WHERE id=1002";
         Object[] student2 = (Object[]) session.createSQLQuery(sql).uniqueResult();  //session datalar uzerinde crud operasyonlari yapar
         //uniqueResult():sorgunun tek satır getireceğini biliyorsak kullanılır.
-        //geriye bir saturdan birden fazla data geldiği için data tipleri farklı
+        //geriye bir satırdan birden fazla data geldiği için data tipleri farklı
         //old için Object[] içine alınır.
         //bircok sutundan data getirdigi icin object[] kullandık.orn id Integer,name String ...
         //burda sorguyu yazarken hibernate i devreden cikardik sorguyu kendimiz yazdık
@@ -83,7 +85,7 @@ public class RunnerFetch01 {
         //sql ile tüm kayıtları çekelim:exercise
         System.out.println("----------------SQL-----------------------");
         String sql2="SELECT * FROM t_student";
-        List<Object[]> result=session.createSQLQuery(sql2).getResultList();
+        List<Object[]> result=session.createSQLQuery(sql2).getResultList(); //birden fazla kayıt gelecegi icin getResultList()
         for (Object[] objects:result){
             System.out.println(Arrays.toString(objects));
         }
