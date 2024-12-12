@@ -21,6 +21,13 @@ gibi bir grup alanı(field) düzenli bir şekilde modellemek için uygundur.
 @Embeddable//gömülebilir
 public class Address {
 
+    //Address class i ayrı bir tablo(entity) degil.İcerisindeki field lardan bir sutun olusturulup Address objesinin
+    //kullanıldıgı tabloya gomulmesini istedik.
+
+    //Bir entity icerisinde baska bir sınıfın(entity olmayan) field larını sutun olarak gormek istersek @Embeddable
+    //anotasyonu ile bu class ın gomulebilir bir class oldugunu gosterip @Embedded anotasyonu ile gomme işlemini gerceklestirebiliyoruz.
+    //@Embedded anotasyonu opsiyonel kullanımı zorunlu degil.
+
     private String street;
     private String city;
     private String country;

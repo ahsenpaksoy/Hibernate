@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 
 public class RunnerSave02 {
     public static void main(String[] args) {
+
         Student02 student1=new Student02(1001,"Ali Can",99);
         Student02 student2=new Student02(1002,"Ali Han",99);
         Student02 student3=new Student02(1003,"Veli Can",99);
@@ -23,7 +24,7 @@ public class RunnerSave02 {
         SessionFactory sf=config.buildSessionFactory();
         Session session =sf.openSession();
 
-        Transaction transaction= session.beginTransaction();
+        Transaction transaction= session.beginTransaction(); //degişiklik yapacagımız icin transaction baslattık.ogrencileri kaydettik
 
         session.save(student1);
         session.save(student2);

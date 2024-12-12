@@ -23,7 +23,7 @@ public class Student02 {
     @Embedded//gömülü:OPSİYONEL
     private Address address;
 
-    //paramsiz const:hibernate fetch işlemlerinde default const kullanır.
+    //paramsiz const:hibernate fetch işlemlerinde(hql de veya session ın get methodunda) default const kullanır.
     public Student02() {
     }
 
