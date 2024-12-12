@@ -105,6 +105,7 @@ public class RunnerFetch01 {
         }
 
         //2-tüm öğrencilerin sadece isimlerini getirelim
+        //String hql4 = "Select s.name From Student s ";
         String hql4="SELECT name FROM Student";
         List<String> resultList3=session.createQuery(hql4, String.class).getResultList();
         for (String s:resultList3){
