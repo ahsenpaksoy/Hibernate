@@ -19,7 +19,7 @@ public class Diary {//ONE
     private Student03 student;//günlük hangi öğrenciye ait : ONE - Diary nin sahibi olan ogrenci, bir ogrenciye ait
 
     //Student ile Diary arasında onetoone ilişki var.Her tablonun id sutununda PK kısıtlaması var.
-    //Birebir ilişkide FK sutununun hangi tabloda oldugu onemli degil.
+    //Birebir ilişkide FK sutununun hangi tabloda oldugu onemli degil.Iki tablodan birine eklenebilir
     //FK sutununu Diary tablosuna koyduk.FK degerlerini student tablosundaki id sutunundan alacak
 
     //getter-setter
