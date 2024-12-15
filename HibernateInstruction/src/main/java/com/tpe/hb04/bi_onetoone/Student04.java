@@ -17,11 +17,18 @@ public class Student04 {
     //mappedBy ogrenci ile gunluk arasında birebir ilişki var yeniden kurmaya gerek yok diyor.iki yonlu ilişki kurmuş olduk
     //ilişki diger tarafta kuruluyor sen sadece takip et diyor.Diary tarafında olusturuldu zaten
 
-    //diary04 classındaki studentın değerine göre eşleştirme yapar
+    //mappedBy diary04 classındaki studentın değerine göre eşleştirme yapar
     //student tablosuna fazladan FK eklemez!!!
     //mappedBy kullanılmazsa her iki tabloda FK eklenir.
-    @OneToOne(mappedBy = "student") //bu ilişki zaten diaryo4 tarafında kuruldu.iki tabloyada FK eklemeye gerek yok
+    @OneToOne(mappedBy = "student") //bu ilişki zaten diary04 tarafında kuruldu.iki tabloyada FK eklemeye gerek yok
     private Diary04 diary;//one   //baska bir sınıfın objesini field olarak ekledigimizde ikisi arasında ilişki kuruyoruz
+
+    //Student icinde bir gunluk field ına ihtiyacımız var.Nasıl gunlukten ogrenciye ulasabiliyorsak gunlukten de ogrenciye
+    //bu sekilde ulasabiliriz.Bir class ın icine baska bir class ın objesini field olarak ekledigimizde bu iki classı(objeyi)
+    //ilişkilendirmis oluyoruz.Bu ilişkiyi hibernate soylemek icinde @OneToOne kullandık.Bu anotasyon Student04 tablosuna diary_id
+    //seklinde FK sutunu ekleyecek.bu ilişki zaten diary04 tarafında kuruldu.iki tabloyada FK eklemeye gerek yok.
+    //mappedBy diyecekki bu ilişki zaten Diary04 classında student field ında kurulu bu ilişkiyi eşleştir takip edeceksin
+    //diyor.
 
     //const
     public Student04() {
@@ -77,5 +84,7 @@ public class Student04 {
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
                 '}';
+        //toString methodlarında ilişkili objeleri kullanıyorsak en azından birinde olmaması gerekir.
+        //O yuzden burdan diary yi sildik.Cunku silmezsek hata vericek
     }
 }

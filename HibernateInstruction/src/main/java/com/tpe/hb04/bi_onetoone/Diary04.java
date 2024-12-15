@@ -15,10 +15,12 @@ public class Diary04 {//ONE
 
     private String name;
 
-    @OneToOne//diary ile t_student03 arasında 1-1 ilişki kurulmasını sağlar
+    @OneToOne//diary04 ile t_student04 arasında 1-1 ilişki kurulmasını sağlar
     //bunun için diary e FK ekler: default ismi : student_id
+    //Birebir ilişkide sadece bir tabloya FK sutununun eklenmesi yeterli
     @JoinColumn(name ="std_id",unique = true )//OPSİYONEL(isim değiştirme, constraint ekleme vs.)
     private Student04 student;//günlük hangi öğrenciye ait : ONE
+
 
     //getter-setter
 
