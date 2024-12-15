@@ -30,7 +30,7 @@ public class RunnerFetch04 {
         //ogrencinin gunlugu hangisidir?
         System.out.println(student.getDiary()); //artık student in getDiary() methoduyla gunluge ulasabiliriz
 
-        //bi_directional : student <--> diary uygulamada bir objeden digerine sıkca ulasmak gerekiyorsa cift yonlu kullanılır
+        //bi_directional : student <--> diary  uygulamada bir objeden digerine sıkca ulasmak gerekiyorsa cift yonlu kullanılır
 
         // !!! Task 1: Günlüğü olan öğrenci ve sahibi olan günlüklerin
         //student name ve diary name fieldlarını getirelim.
@@ -41,6 +41,7 @@ public class RunnerFetch04 {
         for (Object[] oa:resultList){
             System.out.println(Arrays.toString(oa));
         }
+        //hql le yaptıgımız icin class ve field isimlerini kullandık
 
         // !!! Task 2: Tüm öğrencilerin
         //student name ve varsa diary name fieldlarını getirelim.

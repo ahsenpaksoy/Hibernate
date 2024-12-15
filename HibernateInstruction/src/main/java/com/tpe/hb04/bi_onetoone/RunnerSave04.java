@@ -36,10 +36,13 @@ public class RunnerSave04 {
         diary3.setName("X's Diary");
 
         //ilişkinin sahibi olan tablo(class) tarafından set etmeliyiz
+        //ilişki gunluk tarafındaki FK sutunuyla olusturuluyorsa gunluge ogrenciyi set etmeliyiz
+        //Eger gunluge ogrenciyi set etmezsek gunluk tablosunfaki FK sutunu bos kalır ve satırlar arasındaki ilişki kurulamaz
+        //bunu yapmak zorunlu.
         diary1.setStudent(student1); //FK sutununa ogrencinin id si eklensin
         diary2.setStudent(student3);
 
-        //student1.setDiary(diary1); -->mappedBy ile bı işlem otomatik olarak yapılıyor
+        //student1.setDiary(diary1); -->mappedBy ile bu işlem otomatik olarak yapılıyor zorunlu degil
 
         Configuration config=new Configuration().configure().
                 addAnnotatedClass(Student04.class).addAnnotatedClass(Diary04.class);
@@ -52,7 +55,9 @@ public class RunnerSave04 {
         session.save(student3);
         session.save(diary1);
         session.save(diary2);
-        session.save(diary3);transaction.commit();
+        session.save(diary3);
+
+        transaction.commit();
         session.close();
         sf.close();
 
