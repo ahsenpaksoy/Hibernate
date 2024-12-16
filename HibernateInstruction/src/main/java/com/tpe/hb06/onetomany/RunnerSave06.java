@@ -28,7 +28,7 @@ public class RunnerSave06 {
         Book book3=new Book(103,"Suç Ve Ceza");
         Book book4=new Book(104,"Aşk Ve Gurur");
 
-        student1.getBookList().add(book1);
+        student1.getBookList().add(book1); //student ile book arasındaki ilişkiyi kurduk
         student1.getBookList().add(book2);
         student2.getBookList().add(book3);
         student3.getBookList().add(book4); //bir kitap sadece bir ogrenciye ait olabilir

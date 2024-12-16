@@ -27,6 +27,9 @@ public class RunnerSave05 {
 
         student1.setUniversity(university);
         student2.setUniversity(university);
+        //ogrenci ve universite arasındaki ilişkiyi set edersek FK sutununa universitenin id sinin eklenmesini saglamıs oluyoruz
+        //universite ve ogrenci arasında ilişkinin saglanabilmesi icin setter methodunu kullanıyoruz.
+        //Tablomuzda FK sutununa id degerin eklenmesi saglanıyor.
 
         Configuration config=new Configuration().configure().
                 addAnnotatedClass(Student05.class).addAnnotatedClass(University.class);

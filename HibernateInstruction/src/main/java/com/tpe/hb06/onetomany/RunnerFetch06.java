@@ -55,13 +55,8 @@ public class RunnerFetch06 {
             System.out.println(Arrays.toString(o));
         }
 
-
-
-
         session.close();
         sf.close();
-
-
 
 
     }
