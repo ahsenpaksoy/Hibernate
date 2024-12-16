@@ -22,17 +22,18 @@ public class RunnerFetch05 {
         System.out.println(student.getUniversity());
 
         //id:11 olan üniversitenin tüm öğrencilerini listeleyelim.HQL ile
+        //java kodları ile bu task i yapamam cunku universite class ı icerisinde ogrenci ile ilgili bir bilgi yok.
         String hql = "SELECT s FROM Student05 s WHERE s.university = 11";
         List<Student05> resultList = session.createQuery(hql, Student05.class).getResultList();
         for (Student05 s:resultList){
             System.out.println(s);
         }
-        //university.getStudents() -- Tek yonlu ilişki : ancak sorgu yazarak yapabiliyoruz.Tek yonlu ilişki kurdugumuz icin
+        //university.getStudents() ile bu işlemi yapamıyoruz -- Tek yonlu ilişki : ancak sorgu yazarak yapabiliyoruz.Tek yonlu ilişki kurdugumuz icin
 
         //öğrencilerin isimlerini, notlarını ve
         // üniversitelerinin isimlerini yazdıralım
         String hql2="SELECT s.name, s.grade, s.university.name FROM Student05 s";
-        List<Object[]> resultList2=session.createQuery(hql2).getResultList();
+        List<Object[]> resultList2=session.createQuery(hql2).getResultList(); //farklı data tipleri geldigi icin object[] yaptık
         for (Object[] o:resultList2){
             System.out.println(Arrays.toString(o));
         }

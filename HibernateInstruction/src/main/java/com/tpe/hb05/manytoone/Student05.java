@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "t_student05")
-public class Student05 {
+public class Student05 {//MANY
 
     @Id
     private Integer id;
@@ -15,12 +15,17 @@ public class Student05 {
 
     private int grade;
 
-    private LocalDateTime createOn;
+    private LocalDateTime createOn;  //createOn sutununu eklemek istiyorum.ogrenci kaydedilecegi zaman yani insert into
+    //sorgusu gonderilecegi zaman, bu sorgu gonderilmeden hemen once set edilsin istiyorum.O yuzden setter methodunu
+    //this.createOn = LocalDateTime.now(); seklinde duzenledik.
 
     //icinde oldugum sınıf tablo many olan kısım.many student one university
     @ManyToOne //t_student05 ile university tablosu arasında M-1 ilişki kurar
                //t_student05 tablosuna FK ekleyerek ilişkiyi kurar:university_id
-    private University university;//ONE
+    private University university;//ONE - iki obje arasındaki ilişkiyi gosterebilmek icin,bir ogrencinin bir tane universitesi var dicez.
+    //Bu iki obje arasındaki ilişkinin hibernate tarafından da tablodada kurulabilmesi icin field seviyesinde bu durumu
+    //@ManyToOne anotasyonu ile saglarız.
+
 
     //const
     public Student05() {
@@ -32,11 +37,12 @@ public class Student05 {
         this.grade = grade;
     }
 
-
-    //manytoone ilişkide many olan tarafa FK eklenir
+    //manytoone ilişkide many olan tarafa FK eklenir.İcinde bulundugumuz class a bakıyoruz.Student05 university ile ilişkili.
+    //many tane student one tane universite ile ilişkli olabilir.Bircok ogrenci aynı universiteye ait olabilir.O yuzden
+    //manytoone ilişki var diyoruz.
+    //manytoone icinde bulunulan tabloya FK sutunu ekleyerek ilişkiyi kurar.
 
     //getter-setter
-
 
     public University getUniversity() {
         return university;

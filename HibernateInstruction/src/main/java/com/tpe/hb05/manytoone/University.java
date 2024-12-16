@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class University {
+public class University {//ONE
 
     @Id
     private Integer id;
