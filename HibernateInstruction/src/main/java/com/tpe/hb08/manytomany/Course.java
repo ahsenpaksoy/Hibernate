@@ -14,8 +14,11 @@ public class Course {
 
     private String name;
 
-    @ManyToMany(mappedBy = "courseList") //JOIN TABLE kurar:course_t_student08:joın table a gerek yok diger taraftan takip et,eslestir
+    @ManyToMany(mappedBy = "courseList") //JOIN TABLE kurar:ismi course_t_student08:joın table a gerek yok diger taraftan takip et,eslestir
     private List<Student08> studentList=new ArrayList<>();
+
+    //mappedBy diger tarafta ilişkiyi kuran field ın ismiyle map lenir.Ogrenci kursları verildiginde Course tablosu da tersini
+    //okuyacak.Yani bu kursun ogrencilerini belirtecek.Tekrar joın table a gerek yok diger taraftan eslestir.
 
     //const
 

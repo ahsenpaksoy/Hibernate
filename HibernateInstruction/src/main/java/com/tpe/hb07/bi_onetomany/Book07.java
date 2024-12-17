@@ -16,6 +16,12 @@ public class Book07 {//many:ilişkinin sahibi
     //@JoinColumn --> opsiyonel
     private Student07 student; //bu kitap hangi ogrenciye ait.kitaptan da ogrenciye ulasabiliriz
 
+    //Cift yonlu ilişkide student ile book arasındaki ilişkide her iki entity ye diger entity yi field olarak ekliyoruz.
+    //Book class ına student field ını ekliyoruz,book classına book listesini (bookList) ekliyoruz.
+    //Student class ında @OneToMany anotasyonu Book classında @ManyToOne anotasyonu kullanılıyor.@ManyToOne kullanınca
+    //ilişkinin kurulabilmesi icin bir FK sutunu eklenecek.Many olan tarafa FK sutunu eklenmesi yeterli.
+    //Student(one olan) tablosunda @OneToMany kullanıldıgında joın table olusturuyor.Buna gerek yok ilişki zaten diger
+    //tarafta kurulmus.mappedBy ile eslestirme yapar.
 
     //const
     public Book07() {

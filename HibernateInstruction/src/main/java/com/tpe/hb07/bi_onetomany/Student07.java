@@ -28,9 +28,12 @@ public class Student07 {//one
     studentin kitap listesinden bir kitabı silersek veya null yaparsak
     Book tablosundan bu kitabı siler.
      */
+    //cascade kademeli olarak parent-child ilişkisinde işlemlerin otomatik olarak gerceklestirilmesini saglar.
 
     @OneToMany(mappedBy = "student",/*cascade = CascadeType.REMOVE*/orphanRemoval = true) //ilişki kurar:JOIN table olusturur.gerek yok diger tarafta zaten kuruluyor
     private List<Book07> bookList=new ArrayList<>();//bu öğrencinin kitapları nelerdir
+
+    //Cift yonlu ilişkide bir tarafta ilişki kurulduysa diger tarafta mappedBy ile eslestirmesi saglanabilir.
 
 
     //const

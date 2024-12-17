@@ -28,7 +28,7 @@ public class Student06 { //one - bir ogrencinin birden fazla kitabi olabilir.bir
     //@OneToMany bir tablo olusturuyor ama buna gerek yok.İlişkinin student tarafından kurulmasını istiyorum.Veri tabanı acısından
     //baktıgımızda extradan bir tablo olusturmaya gerek yok.Many olan tarafa tek bir sutun ekleyerek bunu cozebiliriz.
     //Bu durumda 3. tablonun olusmasının engellenmesi icin @JoinColumn kullandık.@OneToMany ve @JoinColumn birlikte kullanırsak join table
-    //(ilişki tablosu) nu iptal eder ve Book tablosuna FK ekler ismide student_id oluyor.
+    //(ilişki tablosu) nu iptal eder ve Book tablosuna many olan tarafa FK ekler ismide student_id oluyor.
 
     //many olan tarafta FK olusturmak yeterli ise 3. tabloya gerek yok
 

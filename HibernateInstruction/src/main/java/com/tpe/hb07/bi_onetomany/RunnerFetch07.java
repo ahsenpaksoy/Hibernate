@@ -26,7 +26,7 @@ public class RunnerFetch07 {
         //db de değişikliklerin kalıcı olması için transaction gereklidir.
         Transaction t =session.beginTransaction();
 
-        //book07 tablosunda tüm kayıtları silelim
+        //book07 tablosunda tüm kayıtları silelim.silmek icin sql yada hql kullanabiliriz
         String hql="DELETE FROM Book07";
         int deletedBooks=session.createQuery(hql).executeUpdate();
         System.out.println("Silinen kitap sayısı: "+deletedBooks);

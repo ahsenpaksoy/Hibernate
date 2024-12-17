@@ -40,7 +40,7 @@ public class RunnerFetch06 {
         System.out.println(student2.getBookList());
 
         //tek yonlu ilişki kurdugumuz icin.onetomany ilişki kurduk.one olan taraftan baktık
-        //book->student için SQL/HQL
+        //book->student : tek yonlu oldugu için SQL/HQL gerekli
         //student->books sadece Java kodları yeterli
 
         //name:'Jack' olan öğrencinin kitaplarını getirelim

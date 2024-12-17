@@ -16,7 +16,14 @@ public class Student08 {
 
     private int grade;
 
-    @ManyToMany//ilişkiyi kurar:JOIN TABLE olusturulur. @ManyToMany
+    //JOIN TABLE olusturulması icin @manytomany anotasyonu yeterli.Default degerler ile tablonun ismi olusturulur.
+    //Talonun icine Student tablosundaki PK sutunu ve Course tablosundaki PK sutunundan referans alan iki tane
+    //FK sutunu eklenir.Bu sutunların isimleri de varsayılan olarak olusturulur.
+    //@JoinTable anotasyonunu join table daki sutun isimlerini veya tablonun isimlerini degiştirmek istersek kullanabiliriz.
+    //@JoinColumns FK kısıtlamasının eklendigi sutun.İcinde bulundugumuz tablonun(Student08) PK sinsen gelen degerleri referans alır.
+    //inverseJoinColumns ilişkinin diger tarafındaki FK sutunu.Degerlerini course tablosundaki PK dan alıcak.
+
+    @ManyToMany//ilişkiyi kurar.nasıl mumkunse o sekilde kurar:JOIN TABLE olusturulur.
     @JoinTable(name = "student08_course", joinColumns = {@JoinColumn(name = "std_id")},
             inverseJoinColumns ={@JoinColumn(name = "course_id")} )//opsiyonel
     private List<Course> courseList=new ArrayList<>();
@@ -72,6 +79,10 @@ public class Student08 {
                 ", name='" + name + '\'' +
                 ", grade=" + grade +
                 '}';
+        //Hem ogrencide kurs listesi olur toString metodunda hemde course un toString metodunda
+        //ogrenci listesi olursa bir ogrencyi yada bir course u yazdırmak istedigimizde surekli
+        //birbirlerini cagırdıkları icin stack over flow oluyordu.O yuzden birinden vazgecmeliyiz.
+        //Burda course listesini almadık.
     }
 }
 
