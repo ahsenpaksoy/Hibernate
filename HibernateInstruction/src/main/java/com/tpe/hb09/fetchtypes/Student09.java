@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 /*
-2.taraf Many ise default olarak Lazy , One ise default olarak EAGER yapar :
+2.taraf(karsı taraf) Many ise default olarak Lazy , One ise default olarak EAGER yapar :
 
 OneToMany       --> LAZY
 ManyToMany      --> LAZY
