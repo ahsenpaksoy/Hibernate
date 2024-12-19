@@ -1,17 +1,19 @@
 package com.tpe.hb09.fetchtypes;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
-public class Book09 {
+public class Book09 {//many
 
     @Id
     private Integer id;
     private String name;
 
-    @ManyToOne//default fetchtype:eager
+    //CascadeType.ALL digerlerinin hepsini kapsar.
+
+    //cascade = CascadeType.ALL:bir kitabı DB ye kaydettiğimde bu kitabın
+    // sahibi olan öğrenciyi de otomatik olarak kaydeder
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)//default fetchtype:eager
     private Student09 student;
 
     public Book09() {

@@ -6,7 +6,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 /*
-2.taraf(karsı taraf) Many ise default olarak Lazy , One ise default olarak EAGER yapar :
+Hibernate de fetch işlemlerinin cesitleri,dataları cekme cesidi iki tanedir:lazy-eager
+2.taraf Many ise default olarak Lazy , One ise default olarak EAGER yapar :
 
 OneToMany       --> LAZY
 ManyToMany      --> LAZY
@@ -25,7 +26,7 @@ public class Student09 {
 
     private int grade;
 
-    @OneToMany(mappedBy = "student")//default fetchtype:lazy
+    @OneToMany(mappedBy = "student",fetch = FetchType.EAGER)//default fetchtype:lazy
     private List<Book09> bookList=new ArrayList<>();
 
     public Student09() {
