@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class RunnerSave13 {
     public static void main(String[] args) {
 
-        Student13 student1=new Student13("Jack",99);//-->Transient:DB de karşılığı yok, kalıcı değil
+        Student13 student1=new Student13("Jack",99);//-->Transient durumda:DB de karşılığı yok, kalıcı değil
         Student13 student2=new Student13("Harry",99);//-->Transient:DB de karşılığı yok, kalıcı değil
 
 

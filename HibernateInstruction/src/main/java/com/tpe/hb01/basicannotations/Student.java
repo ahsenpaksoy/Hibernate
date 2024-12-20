@@ -17,6 +17,9 @@ import javax.persistence.Table;
 //!!! Javaca konuşurken bu sınıfı belirtirken Student,
 //SQLce konuşurken t_student kullanırız.
 
+//Entity varlık demek.@Entity kullanınca: Hibernate artık kontrol sende bu classa karsılık bir tablo istiyorum,objelerini tabloda
+//kalıcı hale getirmek istiyorum diyoruz.
+
 public class Student { //kalici hale getirmek istedigimiz dataların oldugu class
 
     @Id  //id sütununa PK kısıtlamasının eklenmesini sağlar. Id anotasyonu ile diger sutunlara da eklenebilir.// sutun ismi onemli degil.bir sutuna pk eklenmesini saglar
