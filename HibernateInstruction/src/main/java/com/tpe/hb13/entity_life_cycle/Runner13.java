@@ -14,14 +14,17 @@ public class Runner13 {
         Session session =sf.openSession();
         Transaction transaction=session.beginTransaction();
 
-        Student13 student = session.get(Student13.class,1); //persisted moddadır.hibernate tarafından yonetiliyor demek
+        Student13 student = session.get(Student13.class,1); //bu entity persisted moddadır.hibernate tarafından yonetiliyor demek
         student.setName("Mehmet");//1,Mehmet,99
 
-        session.delete(student);//persisted durumdaki entity yi ogrenciyi removed yapar.db de karsılıgı yok
+        session.delete(student);//persisted durumdaki entity yi ogrenciyi removed yapar.db de karsılıgı yok.Tamamen ogrenciyi siler
 
         transaction.commit();
         session.close();
         sf.close();
+
+        //Hibernate default olarak first level cache ile calısır.Entity objelerini first level cache de tutar,
+        //ayırana kadar session ı kapatana kadar
 
 
     }
